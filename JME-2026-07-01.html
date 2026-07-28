@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>Nanomind | AI Bio Investor Context</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --sky-400: #38bdf8;
+      --sky-500: #0ea5e9;
+      --sky-600: #0284c7;
+      --violet-500: #8b5cf6;
+      --pink-400: #f472b6;
+      --emerald-500: #10b981;
+      --amber-500: #f59e0b;
+      --rose-500: #f43f5e;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: none;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      color: var(--slate-800);
+      background:
+        linear-gradient(135deg, rgba(248, 250, 252, 0.96), rgba(255, 255, 255, 1) 46%, rgba(241, 245, 249, 0.84));
+      overflow-x: hidden;
+    }
+
+    .deck-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    .deck-nav > * {
+      pointer-events: auto;
+    }
+
+    .nav-brand {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--slate-700);
+      text-decoration: none;
+      letter-spacing: 0;
+    }
+
+    .nav-brand .char-m,
+    .speaker-logo .char-m,
+    .closing-logo .char-m,
+    .slide-heading .char-m,
+    .gradient-text {
+      background: linear-gradient(135deg, var(--sky-400) 0%, #a78bfa 50%, var(--pink-400) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .progress-bar {
+      width: 7rem;
+      height: 3px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--slate-200);
+    }
+
+    .progress-fill {
+      width: 10%;
+      height: 100%;
+      background: linear-gradient(to right, var(--sky-500), var(--violet-500));
+      transition: width 0.25s ease;
+    }
+
+    .progress-text {
+      min-width: 2.75rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.75rem;
+      color: var(--slate-500);
+    }
+
+    .slide-dots {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transform: translateY(-50%);
+    }
+
+    .slide-dot {
+      width: 8px;
+      height: 8px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--slate-300);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .slide-dot.active {
+      background: linear-gradient(to bottom, var(--sky-500), var(--violet-500));
+      transform: scale(1.25);
+    }
+
+    .slide {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+      scroll-snap-align: start;
+      align-items: center;
+      justify-content: center;
+      padding: 4.25rem 1.25rem 2rem;
+      overflow: hidden;
+    }
+
+    #slide-2 {
+      justify-content: flex-start;
+      padding-top: 5rem;
+    }
+
+    .slide-content {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      max-width: 1400px;
+    }
+
+    .kicker {
+      margin-bottom: 1.1rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--sky-600);
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .hero-title,
+    .slide-heading {
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--slate-900);
+      letter-spacing: 0;
+      line-height: 1.08;
+    }
+
+    .hero-title {
+      max-width: 1160px;
+      margin-bottom: 2.25rem;
+      font-size: 5rem;
+      font-weight: 600;
+    }
+
+    #slide-1 {
+      padding: 4rem 1.25rem 3rem;
+    }
+
+    #slide-1 .hero-content {
+      display: flex;
+      min-height: calc(100vh - 7rem);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #slide-1 .hero-title {
+      max-width: 1380px;
+      margin: 0 0 3.25rem;
+      font-size: clamp(6.4rem, 10vw, 9.3rem);
+      font-weight: 700;
+      line-height: 0.94;
+    }
+
+    #slide-1 .speaker-block {
+      gap: 1.5rem;
+    }
+
+    #slide-1 .speaker-name {
+      font-size: clamp(1.65rem, 2vw, 2.1rem);
+    }
+
+    #slide-1 .speaker-separator {
+      width: 2px;
+      height: 2.15rem;
+    }
+
+    #slide-1 .speaker-logo {
+      font-size: clamp(1.35rem, 1.65vw, 1.8rem);
+    }
+
+    .speaker-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.1rem;
+      width: 100%;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--slate-700);
+    }
+
+    .speaker-name {
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .speaker-separator {
+      width: 1px;
+      height: 1.6rem;
+      background: var(--slate-300);
+    }
+
+    .speaker-logo {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--slate-800);
+      letter-spacing: 0;
+      text-decoration: none;
+    }
+
+    .hero-secondary {
+      max-width: 940px;
+      margin-bottom: 2.2rem;
+      font-size: 1.38rem;
+      line-height: 1.55;
+      color: var(--slate-600);
+    }
+
+    .thesis-statement {
+      margin-bottom: 2.2rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.75;
+      color: var(--slate-700);
+      text-transform: uppercase;
+    }
+
+    .thesis-statement span {
+      color: var(--sky-600);
+    }
+
+    .intro-sections,
+    .market-grid {
+      display: grid;
+      gap: 1.35rem;
+    }
+
+    .intro-sections {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 960px;
+    }
+
+    .market-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 1.35rem;
+    }
+
+    .intro-section,
+    .market-column,
+    .curve-panel {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    .intro-section,
+    .market-column {
+      padding: 1.45rem 1.65rem;
+    }
+
+    .intro-section h3,
+    .market-column h3 {
+      margin-bottom: 0.85rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--sky-600);
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .intro-section p,
+    .market-column li,
+    .market-column p {
+      font-size: 1.02rem;
+      line-height: 1.58;
+      color: var(--slate-700);
+    }
+
+    .slide-heading {
+      margin-bottom: 0.75rem;
+      font-size: 4.05rem;
+      font-weight: 600;
+    }
+
+    .heading-sub {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--slate-600);
+      font-size: 2.4rem;
+      font-weight: 500;
+    }
+
+    .compare-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: stretch;
+      margin-top: 1.4rem;
+    }
+
+    .curve-panel {
+      min-height: 390px;
+      padding: 1.45rem 1.55rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .curve-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .curve-panel-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--sky-600);
+      text-transform: uppercase;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.5rem 0.85rem;
+      font-size: 0.8rem;
+      color: var(--slate-500);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .legend-line {
+      width: 1.5rem;
+      height: 3px;
+      border-radius: 999px;
+    }
+
+    .legend-line.moore {
+      background: var(--emerald-500);
+    }
+
+    .legend-line.eroom {
+      background: var(--rose-500);
+    }
+
+    .curve-chart {
+      position: relative;
+      flex: 1;
+      min-height: 360px;
+      border-left: 1px solid var(--slate-200);
+      border-bottom: 1px solid var(--slate-200);
+      background:
+        linear-gradient(to right, rgba(226, 232, 240, 0.55) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.55) 1px, transparent 1px);
+      background-size: 25% 100%, 100% 25%;
+    }
+
+    .curve-chart svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .axis-label {
+      position: absolute;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--slate-400);
+      text-transform: uppercase;
+    }
+
+    .axis-label.y {
+      top: 0.25rem;
+      left: 0.6rem;
+    }
+
+    .axis-label.x {
+      right: 0.6rem;
+      bottom: 0.45rem;
+    }
+
+    .curve-callout {
+      position: absolute;
+      width: 11.5rem;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+      font-size: 0.8rem;
+      line-height: 1.35;
+      color: var(--slate-600);
+    }
+
+    .curve-callout strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--slate-900);
+    }
+
+    .green-word {
+      color: var(--emerald-500);
+    }
+
+    .red-word {
+      color: var(--rose-500);
+    }
+
+    .curve-callout.moore {
+      top: 1.1rem;
+      right: 1rem;
+    }
+
+    .curve-callout.eroom {
+      top: 1.1rem;
+      left: 1.1rem;
+    }
+
+    .comparison-stack {
+      display: grid;
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .comparison-stack .market-column {
+      padding: 1.1rem 1.5rem;
+    }
+
+    .market-column ul {
+      list-style: none;
+    }
+
+    .market-column li + li {
+      margin-top: 0.7rem;
+    }
+
+    .stat {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.58rem;
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.15;
+    }
+
+    .stat.sky {
+      color: var(--sky-600);
+    }
+
+    .stat.rose {
+      color: var(--rose-500);
+    }
+
+    .comparison-stack .stat.sky {
+      color: var(--emerald-500);
+    }
+
+    .slide-footer {
+      margin-top: 1rem;
+      margin-bottom: 0;
+      color: var(--slate-500);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: stretch;
+      margin-top: 1.45rem;
+    }
+
+    .wide-left {
+      grid-template-columns: minmax(0, 1.16fr) minmax(0, 0.84fr);
+    }
+
+    .wide-right {
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+    }
+
+    .content-card,
+    .image-card,
+    .quote-card,
+    .pipeline-card,
+    .loop-card,
+    .knowledge-card,
+    .thesis-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    .content-card,
+    .quote-card,
+    .knowledge-card,
+    .thesis-card {
+      padding: 1.25rem 1.4rem;
+    }
+
+    .content-card h3,
+    .quote-card h3,
+    .knowledge-card h3,
+    .thesis-card h3,
+    .phase-card h3 {
+      margin-bottom: 0.7rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--sky-600);
+      text-transform: uppercase;
+    }
+
+    .content-card p,
+    .quote-card p,
+    .knowledge-card p,
+    .thesis-card p {
+      font-size: 1.06rem;
+      line-height: 1.56;
+      color: var(--slate-700);
+    }
+
+    .content-card ul,
+    .thesis-card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    .content-card li,
+    .thesis-card li {
+      font-size: 0.98rem;
+      line-height: 1.45;
+      color: var(--slate-700);
+    }
+
+    .image-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-card.contain img {
+      object-fit: contain;
+      background: var(--slate-50);
+      padding: 0.5rem;
+    }
+
+    #slide-3 .wide-right {
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.74fr);
+    }
+
+    #slide-3 .image-card {
+      height: 31rem;
+      min-height: 0;
+    }
+
+    #slide-3 .image-card.contain img {
+      padding: 0;
+    }
+
+    .caption-bar {
+      padding: 0.65rem 0.85rem;
+      border-top: 1px solid var(--slate-200);
+      color: var(--slate-500);
+      font-size: 0.78rem;
+      line-height: 1.35;
+      background: rgba(248, 250, 252, 0.92);
+    }
+
+    .metric-grid,
+    .balance-grid,
+    .final-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .balance-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .metric-number {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2.15rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--slate-900);
+    }
+
+    .metric-number.sky {
+      color: var(--sky-600);
+    }
+
+    .metric-number.rose {
+      color: var(--rose-500);
+    }
+
+    .debate-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.35rem;
+    }
+
+    .quote-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: stretch;
+      min-height: 17rem;
+    }
+
+    .portrait {
+      width: 100%;
+      height: 19rem;
+      border-radius: 8px;
+      object-fit: contain;
+      border: 1px solid var(--slate-200);
+      background: var(--slate-50);
+    }
+
+    .stance {
+      display: inline-flex;
+      margin-bottom: 0.75rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: var(--slate-100);
+      color: var(--slate-600);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .stance.bull {
+      background: rgba(16, 185, 129, 0.12);
+      color: #047857;
+    }
+
+    .stance.bear {
+      background: rgba(244, 63, 94, 0.11);
+      color: #be123c;
+    }
+
+    .balance-column {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.85rem;
+    }
+
+    .tag {
+      padding: 0.35rem 0.55rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 999px;
+      background: var(--slate-50);
+      color: var(--slate-700);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .knowledge-map {
+      position: relative;
+      min-height: 24rem;
+      padding: 1.25rem;
+      overflow: hidden;
+    }
+
+    .knowledge-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      width: 12rem;
+      height: 12rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(139, 92, 246, 0.18));
+      border: 1px solid rgba(14, 165, 233, 0.28);
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    .knowledge-node {
+      position: absolute;
+      min-width: 8.2rem;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--slate-700);
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .node-1 { top: 1.4rem; left: 3rem; }
+    .node-2 { top: 1.8rem; right: 2.5rem; }
+    .node-3 { top: 11.3rem; left: 1.4rem; }
+    .node-4 { top: 11.2rem; right: 1.5rem; }
+    .node-5 { bottom: 1.6rem; left: 4.6rem; }
+    .node-6 { right: 5rem; bottom: 1.6rem; }
+
+    .compound-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.82fr);
+      gap: 1.15rem;
+      align-items: stretch;
+      margin-top: 1.2rem;
+    }
+
+    .compound-map {
+      position: relative;
+      min-height: 32rem;
+      overflow: hidden;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+
+    .compound-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .compound-lines path {
+      fill: none;
+      stroke: rgba(14, 165, 233, 0.24);
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .compound-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      width: 16.5rem;
+      min-height: 8.8rem;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-radius: 8px;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, var(--sky-500), var(--violet-500));
+      color: white;
+      text-align: center;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.18;
+      box-shadow: 0 18px 38px rgba(14, 165, 233, 0.18);
+      z-index: 2;
+    }
+
+    .compound-node {
+      position: absolute;
+      width: 12.5rem;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+      z-index: 3;
+    }
+
+    .compound-node strong {
+      display: block;
+      margin-bottom: 0.28rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.92rem;
+      color: var(--slate-900);
+    }
+
+    .compound-node span {
+      display: block;
+      font-size: 0.82rem;
+      line-height: 1.34;
+      color: var(--slate-600);
+    }
+
+    .compound-node.input {
+      border-left: 4px solid var(--sky-500);
+    }
+
+    .compound-node.engine {
+      border-left: 4px solid var(--violet-500);
+    }
+
+    .compound-node.output {
+      border-left: 4px solid var(--emerald-500);
+    }
+
+    .comp-1 { top: 1.3rem; left: 1.4rem; }
+    .comp-2 { top: 1.3rem; left: 50%; transform: translateX(-50%); }
+    .comp-3 { top: 1.3rem; right: 1.4rem; }
+    .comp-4 { top: 13.1rem; left: 1.4rem; }
+    .comp-5 { top: 13.1rem; right: 1.4rem; }
+    .comp-6 { bottom: 1.3rem; left: 1.4rem; }
+    .comp-7 { bottom: 1.3rem; left: 50%; transform: translateX(-50%); }
+    .comp-8 { bottom: 1.3rem; right: 1.4rem; }
+
+    .compound-thesis {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .thesis-highlight {
+      padding: 1.15rem 1.25rem;
+      border: 1px solid rgba(14, 165, 233, 0.28);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(139, 92, 246, 0.12));
+    }
+
+    .thesis-highlight h3 {
+      margin-bottom: 0.65rem;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--slate-900);
+      font-size: 1.2rem;
+    }
+
+    .thesis-highlight p {
+      color: var(--slate-700);
+      font-size: 1.05rem;
+      line-height: 1.48;
+    }
+
+    .loop-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+      margin-top: 1.35rem;
+    }
+
+    .loop-visual .image-card img {
+      height: 33rem;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .loop-card {
+      padding: 1.2rem;
+    }
+
+    .loop-steps {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 1rem;
+      padding-top: 2.5rem;
+    }
+
+    .feedback-arrow {
+      position: absolute;
+      top: 0;
+      left: 0.8rem;
+      right: 0.8rem;
+      height: 2.45rem;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .feedback-arrow path {
+      fill: none;
+      stroke: var(--sky-500);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-dasharray: 5 7;
+    }
+
+    .feedback-arrow marker path {
+      fill: var(--sky-500);
+      stroke: none;
+    }
+
+    .loop-step {
+      position: relative;
+      min-height: 7.6rem;
+      padding: 0.85rem 0.65rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: var(--slate-50);
+    }
+
+    .loop-step strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.9rem;
+      color: var(--slate-900);
+    }
+
+    .loop-step span {
+      color: var(--slate-600);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .pipeline-card {
+      padding: 1rem;
+      margin-top: 1.25rem;
+      overflow-x: auto;
+    }
+
+    .funnel-wrap {
+      min-width: 1120px;
+    }
+
+    .funnel-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: white;
+    }
+
+    .funnel-svg text {
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .funnel-label {
+      fill: white;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .funnel-label-small {
+      font-size: 13px;
+    }
+
+    .funnel-note {
+      fill: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .funnel-metrics {
+      display: grid;
+      grid-template-columns: 1.25fr repeat(9, 1fr);
+      border: 1px solid var(--slate-200);
+      border-top: 0;
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .funnel-cell {
+      padding: 0.58rem 0.48rem;
+      border-right: 1px solid var(--slate-200);
+      border-top: 1px solid var(--slate-200);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--slate-700);
+    }
+
+    .funnel-cell.label {
+      text-align: left;
+      color: var(--slate-500);
+      background: var(--slate-50);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+
+    .isomorphic-panel {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.35rem;
+    }
+
+    .iso-big {
+      display: flex;
+      min-height: 23rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(139, 92, 246, 0.14));
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      text-align: center;
+      padding: 1.2rem;
+    }
+
+    .iso-big strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 4.2rem;
+      line-height: 1;
+      color: var(--slate-900);
+    }
+
+    .iso-big span {
+      display: block;
+      margin-top: 0.8rem;
+      color: var(--slate-600);
+      font-size: 1.06rem;
+      line-height: 1.4;
+    }
+
+    .flywheel {
+      position: relative;
+      min-height: 25rem;
+      margin-top: 1.25rem;
+    }
+
+    .fly-node {
+      position: absolute;
+      width: 11rem;
+      padding: 0.8rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+      text-align: center;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .fly-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      width: 13rem;
+      height: 13rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, var(--sky-500), var(--violet-500));
+      color: white;
+      text-align: center;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.22rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .fly-1 { top: 0; left: 50%; transform: translateX(-50%); }
+    .fly-2 { top: 5.3rem; right: 5rem; }
+    .fly-3 { right: 7rem; bottom: 1rem; }
+    .fly-4 { bottom: 1rem; left: 7rem; }
+    .fly-5 { top: 5.3rem; left: 5rem; }
+
+    .closing-slide {
+      padding: 0;
+      background: #020617;
+    }
+
+    .closing-bg-video,
+    .closing-bg-scrim {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .closing-bg-video {
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    .closing-bg-scrim {
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.62) 46%, rgba(248, 250, 252, 0.1) 100%),
+        linear-gradient(180deg, rgba(248, 250, 252, 0.86), rgba(248, 250, 252, 0.05) 42%, rgba(248, 250, 252, 0.32));
+      pointer-events: none;
+    }
+
+    .closing-hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      padding: 6rem 1.25rem 3.5rem;
+    }
+
+    .closing-hero-copy {
+      width: min(760px, 100%);
+    }
+
+    .closing-boxes {
+      display: grid;
+      max-width: 780px;
+      grid-template-columns: 1fr;
+      margin-top: 2.1rem;
+    }
+
+    .closing-copy {
+      padding: 1.45rem 1.55rem;
+      border: 1px solid rgba(203, 213, 225, 0.7);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .closing-vision {
+      margin-bottom: 0.65rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--sky-600);
+      text-transform: uppercase;
+    }
+
+    .closing-logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .closing-statement {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--slate-900);
+      text-transform: uppercase;
+    }
+
+    .closing-note {
+      margin-top: 0.9rem;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--slate-700);
+    }
+
+    .closing-tags {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .closing-tags span {
+      padding: 0.7rem 0.8rem;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: var(--slate-50);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--slate-700);
+    }
+
+    #slide-10 .slide-heading {
+      max-width: 840px;
+      font-size: clamp(3.4rem, 6vw, 5.6rem);
+      text-shadow: 0 1px 20px rgba(255, 255, 255, 0.45);
+    }
+
+    #slide-10 .heading-sub {
+      font-size: clamp(1.55rem, 2.3vw, 2.35rem);
+    }
+
+    .confidential-header {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.58rem;
+      color: var(--slate-400);
+      pointer-events: none;
+    }
+
+    @media (max-width: 980px) {
+      html {
+        scroll-snap-type: none;
+      }
+
+      .slide {
+        min-height: 100vh;
+        padding: 5.2rem 1.4rem 3rem;
+      }
+
+      .slide-dots {
+        right: 0.9rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      #slide-1 .hero-content {
+        min-height: calc(100vh - 8.2rem);
+      }
+
+      #slide-1 .hero-title {
+        max-width: 100%;
+        margin-bottom: 2.4rem;
+        font-size: clamp(4.2rem, 15vw, 6rem);
+      }
+
+      .speaker-block {
+        align-items: center;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+
+      #slide-1 .speaker-block {
+        gap: 0.8rem;
+      }
+
+      #slide-1 .speaker-name {
+        font-size: 1.55rem;
+      }
+
+      .speaker-separator {
+        width: 3rem;
+        height: 1px;
+      }
+
+      #slide-1 .speaker-separator {
+        width: 4rem;
+        height: 2px;
+      }
+
+      #slide-1 .speaker-logo {
+        font-size: 1.35rem;
+      }
+
+      .hero-secondary {
+        font-size: 1.12rem;
+      }
+
+      .slide-heading {
+        font-size: 2.5rem;
+      }
+
+      .heading-sub {
+        font-size: 1.45rem;
+      }
+
+      .intro-sections,
+      .market-grid,
+      .compare-layout,
+      .two-col,
+      .debate-grid,
+      .loop-visual,
+      .isomorphic-panel,
+      .compound-layout,
+      .closing-boxes,
+      .metric-grid,
+      .balance-grid,
+      .final-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-stack {
+        grid-template-rows: none;
+      }
+
+      .quote-card {
+        min-height: auto;
+      }
+
+      .portrait {
+        width: 100%;
+        height: 14rem;
+      }
+
+      #slide-3 .wide-right {
+        grid-template-columns: 1fr;
+      }
+
+      #slide-3 .image-card {
+        min-height: auto;
+      }
+
+      .loop-steps {
+        grid-template-columns: 1fr;
+        padding-top: 0;
+      }
+
+      .feedback-arrow {
+        display: none;
+      }
+
+      .knowledge-map,
+      .flywheel {
+        min-height: auto;
+      }
+
+      .knowledge-center,
+      .knowledge-node,
+      .fly-center,
+      .fly-node {
+        position: static;
+        transform: none;
+        width: auto;
+        height: auto;
+        min-width: 0;
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+      }
+
+      .knowledge-center,
+      .fly-center {
+        padding: 1rem;
+      }
+
+      .compound-map {
+        display: grid;
+        min-height: auto;
+        gap: 0.75rem;
+        padding: 1rem;
+      }
+
+      .compound-lines {
+        display: none;
+      }
+
+      .compound-center,
+      .compound-node {
+        position: static;
+        width: auto;
+        min-height: 0;
+        transform: none;
+      }
+
+      .closing-bg-scrim {
+        background:
+          linear-gradient(90deg, rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.74) 54%, rgba(248, 250, 252, 0.28) 100%),
+          linear-gradient(180deg, rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.16) 48%, rgba(248, 250, 252, 0.48));
+      }
+
+      .closing-hero-content {
+        padding: 5.2rem 1.4rem 3rem;
+      }
+
+      .closing-boxes {
+        max-width: 100%;
+        margin-top: 1.4rem;
+      }
+
+      .closing-statement {
+        font-size: 1.35rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .deck-nav {
+        padding: 0.85rem 1rem;
+      }
+
+      .progress-container {
+        display: none;
+      }
+
+      .slide-dots {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 2.45rem;
+      }
+
+      #slide-1 .hero-title {
+        font-size: clamp(3.85rem, 15vw, 4.9rem);
+      }
+
+      .slide-heading {
+        font-size: 2.05rem;
+      }
+
+      .heading-sub {
+        font-size: 1.25rem;
+      }
+
+      .curve-chart {
+        min-height: 260px;
+      }
+
+      .curve-callout {
+        display: none;
+      }
+
+      .quote-card {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        width: 100%;
+        height: 14rem;
+      }
+
+      .image-card img {
+        max-height: 20rem;
+      }
+
+      .confidential-header {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="confidential-header">
+    <span>Nanomind - Investor Context</span>
+    <span>Junio 2026</span>
+  </div>
+
+  <nav class="deck-nav" aria-label="Navegaci&oacute;n de slides">
+    <a class="nav-brand" href="./">NANO<span class="char-m">M</span>IND</a>
+    <div class="progress-container">
+      <div class="progress-bar" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-text" id="progressText">1 / 10</span>
+    </div>
+  </nav>
+
+  <div class="slide-dots" id="slideDots" aria-label="Selector de slides"></div>
+
+  <section class="slide" id="slide-1">
+    <div class="slide-content hero-content">
+      <h1 class="hero-title">&iquest;Puede la <span class="gradient-text">IA</span> curar a la biolog&iacute;a?</h1>
+      <div class="speaker-block" aria-label="Ponente">
+        <span class="speaker-name">Andr&eacute;s Torrubia</span>
+        <span class="speaker-separator" aria-hidden="true"></span>
+        <span class="speaker-logo">NANO<span class="char-m">M</span>IND</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-2">
+    <div class="slide-content">
+      <h2 class="slide-heading">
+        La biotecnolog&iacute;a est&aacute; enferma,
+        <span class="heading-sub">la tecnolog&iacute;a no.</span>
+      </h2>
+
+      <div class="compare-layout">
+        <div class="curve-panel">
+          <div class="curve-panel-header">
+            <p class="curve-panel-title">Dos curvas de productividad</p>
+            <div class="legend">
+              <span class="legend-item"><span class="legend-line moore"></span>Moore</span>
+              <span class="legend-item"><span class="legend-line eroom"></span>Eroom</span>
+            </div>
+          </div>
+
+          <div class="curve-chart" aria-label="Comparaci&oacute;n conceptual entre Moore y Eroom">
+            <span class="axis-label y">Productividad</span>
+            <span class="axis-label x">Tiempo</span>
+            <svg viewBox="0 0 600 300" role="img" aria-hidden="true">
+              <path d="M20 255 C125 236, 206 202, 286 158 C382 105, 470 58, 580 28" fill="none" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+              <path d="M20 48 C118 73, 198 108, 276 145 C379 194, 468 226, 580 255" fill="none" stroke="#f43f5e" stroke-width="8" stroke-linecap="round"/>
+              <circle cx="580" cy="28" r="7" fill="#10b981"/>
+              <circle cx="580" cy="255" r="7" fill="#f43f5e"/>
+            </svg>
+            <div class="curve-callout moore">
+              <strong><span class="green-word">Tech</span> aprendi&oacute; a escalar</strong>
+              M&aacute;s capacidad, menor coste marginal, iteraci&oacute;n digital y aprendizaje acumulativo.
+            </div>
+            <div class="curve-callout eroom">
+              <strong><span class="red-word">Bio</span> se encareci&oacute;</strong>
+              M&aacute;s capital por f&aacute;rmaco, ciclos largos y validaci&oacute;n humana tard&iacute;a.
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-stack">
+          <article class="market-column">
+            <h3>Tecnolog&iacute;a</h3>
+            <p><span class="stat sky">Moore</span>La computaci&oacute;n hizo que probar, distribuir y mejorar fuese cada vez m&aacute;s barato.</p>
+          </article>
+          <article class="market-column">
+            <h3>Biolog&iacute;a</h3>
+            <p><span class="stat rose">Eroom</span>Descubrir f&aacute;rmacos exige m&aacute;s capital y tarda m&aacute;s en convertir hip&oacute;tesis en evidencia cl&iacute;nica.</p>
+          </article>
+          <article class="market-column">
+            <h3>Pregunta inversora</h3>
+            <p>&iquest;Puede la IA introducir una curva tipo Moore en partes de la ciencia experimental sin ignorar que la cl&iacute;nica sigue siendo el filtro duro?</p>
+          </article>
+        </div>
+      </div>
+
+      <p class="slide-footer">
+        Eroom's Law: Scannell et al., Nature Reviews Drug Discovery, 2012. Slide conceptual; no implica que toda la biolog&iacute;a pueda comportarse como software.
+      </p>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-3">
+    <div class="slide-content">
+      <h2 class="slide-heading">
+        La salud es enorme,
+        <span class="heading-sub">pero <em>biotech</em> sigue pareciendo una apuesta binaria.</span>
+      </h2>
+
+      <div class="two-col wide-right">
+        <div class="image-card contain">
+          <img src="assets/ai-bio-deck/glp1-ai-revenue.png" alt="Comparativa de ingresos GLP-1 frente a compa&ntilde;&iacute;as de IA">
+          <div class="caption-bar">Ejemplo de narrativa de mercado: una sola clase terap&eacute;utica puede capturar m&aacute;s ingresos que compa&ntilde;&iacute;as de IA muy visibles.</div>
+        </div>
+        <div class="balance-column">
+          <article class="content-card">
+            <h3>TAM real</h3>
+            <p><span class="metric-number sky">$T+</span>La demanda sanitaria no es peque&ntilde;a. El problema no es mercado, es productividad de I+D.</p>
+          </article>
+          <article class="content-card">
+            <h3>Retorno dif&iacute;cil</h3>
+            <p>Tiempo largo, capital intensivo, regulaci&oacute;n, <em>endpoints</em> cl&iacute;nicos y alta tasa de fracaso.</p>
+          </article>
+          <article class="content-card">
+            <h3>Pregunta de fondo</h3>
+            <p>&iquest;Qu&eacute; tendr&iacute;a que cambiar para que ciencia dura se parezca m&aacute;s a infraestructura tecnol&oacute;gica?</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-4">
+    <div class="slide-content">
+      <h2 class="slide-heading">
+        El <em>pipeline</em> revela d&oacute;nde la IA ayuda,
+        <span class="heading-sub">y d&oacute;nde todav&iacute;a no.</span>
+      </h2>
+
+      <div class="pipeline-card">
+        <div class="funnel-wrap" aria-label="Embudo de desarrollo de f&aacute;rmacos">
+          <svg class="funnel-svg" viewBox="0 0 1200 330" role="img" aria-label="Embudo desde target discovery hasta lanzamiento">
+            <polygon points="20,35 245,58 245,286 20,315" fill="#a7b83f" stroke="#e2e8f0" stroke-width="3"/>
+            <polygon points="245,58 380,76 380,268 245,286" fill="#46b994" stroke="#e2e8f0" stroke-width="3"/>
+            <polygon points="380,76 515,94 515,251 380,268" fill="#2d88d8" stroke="#e2e8f0" stroke-width="3"/>
+            <polygon points="515,94 650,109 650,235 515,251" fill="#5b3aa8" stroke="#e2e8f0" stroke-width="3"/>
+            <polygon points="650,109 785,122 785,224 650,235" fill="#64819f" stroke="#e2e8f0" stroke-width="3"/>
+            <polygon points="785,122 910,134 910,214 785,224" fill="#4cc17d" stroke="#e2e8f0" stroke-width="3"/>
+            <polygon points="910,134 1020,142 1020,206 910,214" fill="#3f996d" stroke="#e2e8f0" stroke-width="3"/>
+            <polygon points="1020,142 1110,148 1110,200 1020,206" fill="#25734f" stroke="#e2e8f0" stroke-width="3"/>
+            <polygon points="1110,148 1180,149 1180,199 1110,200" fill="#6aa347" stroke="#e2e8f0" stroke-width="3"/>
+
+            <text class="funnel-label" x="42" y="128" font-style="italic">Disease hypothesis</text>
+            <text class="funnel-label" x="42" y="150" font-style="italic">&amp; target discovery</text>
+            <text class="funnel-note" x="42" y="190">Meses a d&eacute;cadas:</text>
+            <text class="funnel-note" x="42" y="208">biolog&iacute;a, causalidad,</text>
+            <text class="funnel-note" x="42" y="226">selecci&oacute;n de indicaci&oacute;n</text>
+
+            <text class="funnel-label" x="270" y="171" font-style="italic">Target-to-hit</text>
+            <text class="funnel-label" x="405" y="171" font-style="italic">Hit-to-lead</text>
+            <text class="funnel-label" x="540" y="158" font-style="italic">Lead</text>
+            <text class="funnel-label" x="540" y="181" font-style="italic">optimization</text>
+            <text class="funnel-label" x="674" y="171" font-style="italic">Preclinical</text>
+            <text class="funnel-label" x="815" y="171" font-style="italic">Phase I</text>
+            <text class="funnel-label" x="940" y="171" font-style="italic">Phase II</text>
+            <text class="funnel-label" x="1035" y="171" font-style="italic">Phase III</text>
+            <text class="funnel-label funnel-label-small" x="1128" y="171" font-style="italic">Launch</text>
+          </svg>
+
+          <div class="funnel-metrics">
+            <div class="funnel-cell label">Probabilidad de &eacute;xito</div>
+            <div class="funnel-cell">1-5%</div>
+            <div class="funnel-cell">80%</div>
+            <div class="funnel-cell">75%</div>
+            <div class="funnel-cell">85%</div>
+            <div class="funnel-cell">69%</div>
+            <div class="funnel-cell">54%</div>
+            <div class="funnel-cell">34%</div>
+            <div class="funnel-cell">70%</div>
+            <div class="funnel-cell">91%</div>
+            <div class="funnel-cell label">Tiempo de ciclo</div>
+            <div class="funnel-cell">1-10 a&ntilde;os</div>
+            <div class="funnel-cell">1.0</div>
+            <div class="funnel-cell">1.5</div>
+            <div class="funnel-cell">2.0</div>
+            <div class="funnel-cell">1.0</div>
+            <div class="funnel-cell">1.5</div>
+            <div class="funnel-cell">2.5</div>
+            <div class="funnel-cell">2.5</div>
+            <div class="funnel-cell">1.5</div>
+            <div class="funnel-cell label">Coste por <em>launch</em></div>
+            <div class="funnel-cell">$0-1000M</div>
+            <div class="funnel-cell">$94M</div>
+            <div class="funnel-cell">$166M</div>
+            <div class="funnel-cell">$414M</div>
+            <div class="funnel-cell">$150M</div>
+            <div class="funnel-cell">$273M</div>
+            <div class="funnel-cell">$319M</div>
+            <div class="funnel-cell">$314M</div>
+            <div class="funnel-cell">$48M</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-5">
+    <div class="slide-content">
+      <h2 class="slide-heading">
+        La IA ya comprime la fase temprana,
+        <span class="heading-sub">pero a&uacute;n no ha roto la cl&iacute;nica.</span>
+      </h2>
+
+      <div class="balance-grid">
+        <article class="content-card">
+          <h3>Ya est&aacute; cambiando</h3>
+          <p>Donde el <em>feedback</em> es m&aacute;s r&aacute;pido y digitalizable, la IA ya mejora velocidad de exploraci&oacute;n.</p>
+          <div class="tag-list">
+            <span class="tag"><em>Target discovery</em></span>
+            <span class="tag">Predicci&oacute;n estructural</span>
+            <span class="tag">Dise&ntilde;o proteico</span>
+            <span class="tag"><em>Docking</em></span>
+            <span class="tag">ADMET</span>
+            <span class="tag">Biomarcadores</span>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <h3>Falta demostrar</h3>
+          <p>La validaci&oacute;n que cambiar&iacute;a m&uacute;ltiplos no es otra demo precl&iacute;nica, es mejora repetible en humanos.</p>
+          <ul>
+            <li>Mayor probabilidad de &eacute;xito en Fase II/III.</li>
+            <li>Menor coste por candidato cl&iacute;nicamente viable.</li>
+            <li>Dise&ntilde;o de <em>trials</em> y poblaciones m&aacute;s predecible.</li>
+            <li>Aprobaciones que prueben que el motor repite.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="metric-grid">
+        <article class="content-card">
+          <h3>Donde hay se&ntilde;al</h3>
+          <p><span class="metric-number sky">Precl&iacute;nica</span>Dise&ntilde;o, ranking, optimizaci&oacute;n y selecci&oacute;n de candidatos.</p>
+        </article>
+        <article class="content-card">
+          <h3>Donde est&aacute; el riesgo</h3>
+          <p><span class="metric-number rose">Humano</span>Eficacia, toxicidad, endpoints, reclutamiento, regulaci&oacute;n y reembolso.</p>
+        </article>
+        <article class="content-card">
+          <h3>El cambio de r&eacute;gimen</h3>
+          <p>Cuando mejores modelos produzcan mejores tasas cl&iacute;nicas, no solo mejores candidatos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-6">
+    <div class="slide-content">
+      <h2 class="slide-heading">
+        &iquest;Herramienta prometedora,
+        <span class="heading-sub">o cambio de r&eacute;gimen?</span>
+      </h2>
+
+      <div class="debate-grid">
+        <article class="quote-card">
+          <img class="portrait" src="assets/ai-bio-deck/doudna-nobel.png" alt="Jennifer A. Doudna en ilustraci&oacute;n Nobel">
+          <div>
+            <span class="stance bear">Esc&eacute;pticos</span>
+            <h3>Jennifer Doudna como advertencia</h3>
+            <p>La IA ayuda, pero el maximalismo LLM puede infravalorar lo que la biolog&iacute;a exige: mecanismos, causalidad, contexto celular, validaci&oacute;n experimental y traducci&oacute;n cl&iacute;nica.</p>
+          </div>
+        </article>
+
+        <article class="quote-card">
+          <img class="portrait" src="assets/ai-bio-deck/hassabis-nobel.png" alt="Demis Hassabis en ilustraci&oacute;n Nobel">
+          <div>
+            <span class="stance bull">Maximalistas</span>
+            <h3>Demis Hassabis como tesis <em>bull</em></h3>
+            <p>Si los modelos pueden capturar estructura, funci&oacute;n y dise&ntilde;o biol&oacute;gico, <em>drug discovery</em> puede moverse hacia modelos para predecir toxicidad, mecanismo, dosificaci&oacute;n, selecci&oacute;n de pacientes, etc.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="slide-footer">La tensi&oacute;n no es IA s&iacute; o no. Es si la IA se queda como copiloto o se convierte en infraestructura de ciencia experimental.</p>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-7">
+    <div class="slide-content">
+      <h2 class="slide-heading">
+        La IA no cambia bio leyendo <em>papers</em>;
+        <span class="heading-sub">la cambia cerrando el <em>loop</em> experimental.</span>
+      </h2>
+
+      <div class="loop-visual">
+        <div class="image-card">
+          <img src="assets/ai-bio-deck/biacore-t200.jpg" alt="Instrumento Biacore T200 en laboratorio">
+          <div class="caption-bar">Instrumentaci&oacute;n, assays y trazabilidad convierten hip&oacute;tesis en datos legibles por modelos.</div>
+        </div>
+
+        <div class="loop-card">
+          <h3>El <em>loop</em> que importa</h3>
+          <p>La ventaja aparece cuando el coste marginal de aprender baja y cada experimento mejora la siguiente decisi&oacute;n.</p>
+          <div class="loop-steps">
+            <svg class="feedback-arrow" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z"></path>
+                </marker>
+              </defs>
+              <path d="M940 44 C760 6, 240 6, 58 44" marker-end="url(#arrowHead)"></path>
+            </svg>
+            <div class="loop-step"><strong>Leer</strong><span><em>Papers</em>, <em>omics</em>, patentes, datos internos.</span></div>
+            <div class="loop-step"><strong>Hip&oacute;tesis</strong><span><em>Targets</em>, mecanismos, poblaciones.</span></div>
+            <div class="loop-step"><strong>Dise&ntilde;ar</strong><span>Mol&eacute;culas, prote&iacute;nas, <em>assays</em>.</span></div>
+            <div class="loop-step"><strong>Probar</strong><span>Robots, instrumentos, <em>readouts</em>.</span></div>
+            <div class="loop-step"><strong>Aprender</strong><span>Actualizar modelos y decidir el siguiente ciclo.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-8">
+    <div class="slide-content">
+      <h2 class="slide-heading">
+        La biolog&iacute;a est&aacute; distribuida;
+        <span class="heading-sub">un sistema ag&eacute;ntico puede conectarla, amplificarla y llevarla al experimento.</span>
+      </h2>
+
+      <div class="compound-layout">
+        <div class="compound-map" aria-label="Sistema ag&eacute;ntico que conecta conocimiento, modelos, experimentos y activos">
+          <svg class="compound-lines" viewBox="0 0 760 500" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M124 70 C235 120, 300 165, 380 250"></path>
+            <path d="M380 70 C380 128, 380 185, 380 250"></path>
+            <path d="M636 70 C525 120, 460 165, 380 250"></path>
+            <path d="M124 250 C210 250, 292 250, 380 250"></path>
+            <path d="M636 250 C550 250, 468 250, 380 250"></path>
+            <path d="M124 430 C235 380, 300 335, 380 250"></path>
+            <path d="M380 430 C380 372, 380 315, 380 250"></path>
+            <path d="M636 430 C525 380, 460 335, 380 250"></path>
+          </svg>
+
+          <div class="compound-center">Sistema ag&eacute;ntico<br>de aprendizaje</div>
+          <div class="compound-node input comp-1"><strong><em>Papers</em> + patentes</strong><span>Conocimiento expl&iacute;cito</span></div>
+          <div class="compound-node input comp-2"><strong><em>Omics</em> + ensayos</strong><span>Se&ntilde;ales biol&oacute;gicas</span></div>
+          <div class="compound-node input comp-3"><strong>Experiencia t&aacute;cita</strong><span>Contexto cient&iacute;fico</span></div>
+          <div class="compound-node engine comp-4"><strong>Modelos</strong><span>Priorizan hip&oacute;tesis</span></div>
+          <div class="compound-node engine comp-5"><strong>Experimentos</strong><span>Corrigen el modelo</span></div>
+          <div class="compound-node output comp-6"><strong>Datos propietarios</strong><span><em>Moat</em></span></div>
+          <div class="compound-node output comp-7"><strong>Candidatos</strong><span>Activos terap&eacute;uticos</span></div>
+          <div class="compound-node output comp-8"><strong><em>Feedback</em> cl&iacute;nico</strong><span>Aprendizaje acumulado</span></div>
+        </div>
+
+        <div class="compound-thesis">
+          <div class="thesis-highlight">
+            <h3>La tesis inversora</h3>
+            <p>Bio ser&aacute; m&aacute;s invertible cuando cada ciclo reduzca incertidumbre y aumente el valor del siguiente programa.</p>
+          </div>
+          <article class="content-card">
+            <h3>Qu&eacute; buscar</h3>
+            <p>Datos propietarios, <em>loops</em> experimentales, <em>assets</em> o <em>royalties</em>, y capacidad de convertir aprendizaje en propiedad.</p>
+          </article>
+          <article class="content-card">
+            <h3>Qu&eacute; evitar</h3>
+            <p><em>Software</em> sin datos, IA como <em>marketing</em>, laboratorios sin <em>readouts</em> claros, IP d&eacute;bil o ciencia sin camino regulatorio.</p>
+          </article>
+          <article class="content-card">
+            <h3>La diferencia</h3>
+            <p>No basta con conectar conocimiento: la ventaja aparece cuando cada experimento mejora el siguiente programa.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-9">
+    <div class="slide-content">
+      <h2 class="slide-heading">
+        Isomorphic es un cambio de paradigma:
+        <span class="heading-sub">convertir problemas de laboratorio en problemas computacionales.</span>
+      </h2>
+
+      <div class="isomorphic-panel">
+        <div class="iso-big">
+          <div>
+            <span>Isomorphic Labs</span>
+            <strong>$2.1B</strong>
+            <span>Capital para intentar convertir <em>drug discovery</em> en una disciplina m&aacute;s computacional, medible y repetible.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide closing-slide" id="slide-10">
+    <video class="closing-bg-video" autoplay muted loop playsinline preload="metadata" poster="seed/assets/video/movie.png">
+      <source src="seed/assets/video/movie.mp4" type="video/mp4">
+    </video>
+    <div class="closing-bg-scrim" aria-hidden="true"></div>
+
+    <div class="slide-content closing-hero-content">
+      <div class="closing-hero-copy">
+        <h2 class="slide-heading">
+          &iquest;Qu&eacute; es Nano<span class="char-m">m</span>ind?
+          <span class="heading-sub">Una forma de apostar por la tesis <em>bull</em>.</span>
+        </h2>
+
+        <div class="closing-boxes">
+          <div class="closing-copy">
+            <p class="closing-vision">VISI&Oacute;N: CREACI&Oacute;N TERAP&Eacute;UTICA AG&Eacute;NTICA.</p>
+            <p class="closing-statement">
+              DE INTENCI&Oacute;N BIOL&Oacute;GICA A MEDICINA VALIDADA.
+            </p>
+            <p class="closing-note">
+              Nanomind orquesta modelos frontera, agentes especializados, <em>feedback</em> experimental, contexto biol&oacute;gico, estrategia de IP, mercado e indicaci&oacute;n para guiar cada programa: <strong><em>target</em>, dise&ntilde;o molecular, validaci&oacute;n, desarrollabilidad y pacientes.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const TOTAL_SLIDES = 10;
+    let currentSlide = 1;
+
+    function initDeck() {
+      createSlideDots();
+      setupScrollObserver();
+      setupKeyboardNav();
+      updateProgress(1);
+    }
+
+    function createSlideDots() {
+      const container = document.getElementById("slideDots");
+      for (let i = 1; i <= TOTAL_SLIDES; i += 1) {
+        const dot = document.createElement("button");
+        dot.className = "slide-dot" + (i === 1 ? " active" : "");
+        dot.setAttribute("aria-label", "Ir a slide " + i);
+        dot.addEventListener("click", () => goToSlide(i));
+        container.appendChild(dot);
+      }
+    }
+
+    function setupScrollObserver() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.55) {
+            const slideNum = Number(entry.target.id.replace("slide-", ""));
+            currentSlide = slideNum;
+            updateProgress(slideNum);
+            updateDots(slideNum);
+          }
+        });
+      }, { threshold: 0.55 });
+
+      document.querySelectorAll(".slide").forEach((slide) => observer.observe(slide));
+    }
+
+    function setupKeyboardNav() {
+      document.addEventListener("keydown", (event) => {
+        if (["ArrowDown", "ArrowRight", " "].includes(event.key)) {
+          event.preventDefault();
+          goToSlide(Math.min(currentSlide + 1, TOTAL_SLIDES));
+        }
+
+        if (["ArrowUp", "ArrowLeft"].includes(event.key)) {
+          event.preventDefault();
+          goToSlide(Math.max(currentSlide - 1, 1));
+        }
+      });
+    }
+
+    function goToSlide(num) {
+      const slide = document.getElementById("slide-" + num);
+      if (slide) {
+        slide.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    function updateProgress(slideNum) {
+      document.getElementById("progressFill").style.width = ((slideNum / TOTAL_SLIDES) * 100) + "%";
+      document.getElementById("progressText").textContent = slideNum + " / " + TOTAL_SLIDES;
+    }
+
+    function updateDots(slideNum) {
+      document.querySelectorAll(".slide-dot").forEach((dot, index) => {
+        dot.classList.toggle("active", index + 1 === slideNum);
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initDeck);
+    } else {
+      initDeck();
+    }
+  </script>
+</body>
+</html>
